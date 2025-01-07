@@ -15,7 +15,10 @@
                 <p class="text-gray-500">
                     {{ Str::limit($recipe->description, 100) }}
                 </p>
-                <a href="recipe_detail.html" class="text-yellow-500 hover:text-yellow-600 mt-2 inline-block">Voir la
+                <a href="{{ route('recipes.show', [
+            'id' => $recipe->id,
+            'slug' => Str::slug($recipe->name),
+        ]) }}" class="text-yellow-500 hover:text-yellow-600 mt-2 inline-block">Voir la
                     recette</a>
             </div>
         </article>

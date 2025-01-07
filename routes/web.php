@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
-
+use App\Http\Controllers\RecipesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/', [PagesController::class, 'homeAction'])->name('home');
+
+
+Route::get('/Recipes/{id}/{slug}', [RecipesController::class, 'show'])->name('recipes.show');

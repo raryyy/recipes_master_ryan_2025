@@ -3,7 +3,7 @@
     <!-- User Info -->
     <div class="flex items-center mb-6">
         <!-- User Avatar -->
-        <img src="{{ $user->picture }}" alt="{{ $user->name }}"
+        <img src="{{ asset('pictures/' . $user->picture) }}" alt="{{ $user->name }}"
             class="w-24 h-24 rounded-full border-4 border-yellow-500 mr-4" />
 
 

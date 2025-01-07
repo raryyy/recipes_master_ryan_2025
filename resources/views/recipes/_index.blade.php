@@ -18,7 +18,10 @@
                     <span class="text-gray-500"><i class="fas fa-comment"></i> {{ count($recipe->comments) }}
                         commentaires</span>
                 </div>
-                <a href="recipe.html"
+                <a href="{{ route('recipes.show', [
+            'id' => $recipe->id,
+            'slug' => Str::slug($recipe->name),
+        ]) }}"
                     class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
                     Voir la recette
                 </a>

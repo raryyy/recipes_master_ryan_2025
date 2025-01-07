@@ -10,6 +10,8 @@ ETAPE 1: ENVIRONNEMENT
 		APP_URL: http://127.0.0.1:8000
 		et les paramètres DB
 	8. Vérifier le .gitignore et le readme.md
+	9. Installation DebugBar
+
 
 	AMEND COMMIT !
 		- WIP > Stage All > Amend
@@ -17,10 +19,50 @@ ETAPE 1: ENVIRONNEMENT
 		  Gitlab > RECIPES_MASTER_2024 > Settings > Repository > Protected Branches
 		- Push > Force Push > Force Push
 
+
 ETAPE 2: Intégration du template
 	1. Copier/coller le code du template fourni dans 'views/templates/index.blade.php'
 	2. Modifier temporairement la route pour visualiser le template views('templates.index')
 	3. Placer les zones dynamiques
 	4. Décomposition en partials
 
-ETAPE 3: 
+
+ETAPE 3: Création des CTRL et des Models (avec les liaisons) 
+         pour chaque table
+
+
+         hasMany, belongsTo, belongsToMany ...
+
+
+ -------------------------------------------------------------
+
+
+ ETAPE 4: Mise en place des routes du projet 
+
+
+	ROUTE PAR DÉFAUT
+	Ici: page composite -> PagesController->homeAction
+
+
+ 	ROUTE: pages.home
+ 	PATTERN: /
+ 	CTRL: PagesController
+ 	ACTION: homeAction
+ 	VIEW: pages.home
+ 		Partials: 
+ 			- recipes._random en envoyant les data
+ 			- recipes._recents en envoyant les data
+ 			- users._random en envoyant les data
+
+
+ 	ROUTE: recipes.show
+ 	PATTERN: /recipes/id/slug
+ 	VERB: GET
+ 	CTRL: RecipesController
+ 	ACTION: show
+ 	VIEW: recipes.show
+ 		Partials:
+ 			- ingredients._index
+ 			- comments._index
+
+
